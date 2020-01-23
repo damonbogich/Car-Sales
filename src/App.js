@@ -21,6 +21,7 @@ const App = () => {
       { id: 3, name: 'Premium sound system', price: 500 },
       { id: 4, name: 'Rear spoiler', price: 250 }
     ]
+    
   };
 
   const removeFeature = item => {
