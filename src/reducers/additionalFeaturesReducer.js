@@ -21,24 +21,38 @@ export const additionalFeaturesReducer = (state = initialState, action) => {
     switch(action.type) {
         case "ADDITIONAL_FEATURE":
             console.log('add button pressed', action.payload)
+            // console.log('this is current state', state)
             
       return {
           ...state,
         car: {
             ...state.car,
+            price: state.car.price + action.payload.price,
              features: [
                 ...state.car.features, action.payload
             ]
         }
       };
-      //I'm trying to tell my car to push whatever I click on into its features array from state
-      case "ADD_FEATURE":
+        
+      case "REMOVE_FEATURE":
+          console.log("remove pressed", action.payload)
+          
           return {
               ...state,
               car: {
-                  ...state.car.features.push(action.payload),    
+                  ...state.car, 
+                  price: state.car.price - action.payload.price,
+                  features: [
+                      ...state.car.features.filter(item => item.id !== action.payload.id)
+                  ]
               }
           }
+    //    case "PRICE":
+    //        console.log("price changed", action.payload)
+    //        return {
+    //            ...state, additionalPrice: state.additionalPrice + action.payload.price, 
+    //        }   
+      
 
         
         default: 

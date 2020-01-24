@@ -3,6 +3,6 @@ export const addFeature = addedFeature => {
 
 }
 
-export const newFeature = feature => {
-    return {type: "ADD_FEATURE", payload: feature}
+export const removeFeature = removedFeature => {
+    return {type: "REMOVE_FEATURE", payload: removedFeature}
 }
